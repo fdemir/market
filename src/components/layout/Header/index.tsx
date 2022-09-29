@@ -3,7 +3,6 @@ import styled from "styled-components";
 import Container from "~/components/lib/Container";
 
 import { ReactComponent as Logo } from "~/assets/logo.svg";
-import { useGetProductsQuery } from "~/store/features/product/product-slice";
 
 const StyledHeader = styled.header`
   display: flex;
@@ -21,8 +20,6 @@ const StyledHeaderContent = styled.div`
 `;
 
 const Header: React.FC = () => {
-  const { isLoading, data } = useGetProductsQuery();
-
   return (
     <StyledHeader>
       <Container>

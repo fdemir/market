@@ -1,5 +1,6 @@
 import Text from "~/components/lib/Text";
 import styled from "styled-components";
+import { Product } from "~/types";
 
 const StyledProductItem = styled.div`
   width: 100%;
@@ -41,19 +42,27 @@ const Name = styled(Text)`
   display: block;
 `;
 
-const ProductItem = () => {
+type ProductItemProps = {
+  product: Product;
+  handleAddToBasket: (product: Product) => void;
+};
+
+const ProductItem: React.FC<ProductItemProps> = ({
+  product,
+  handleAddToBasket,
+}) => {
   return (
     <StyledProductItem>
       <StyledImage>
         <div></div>
       </StyledImage>
       <Text color="primary" fw="semiBold">
-        ₺ 14,99
+        ₺ {product.price}
       </Text>
       <Name color="dark" fw="semiBold">
-        Gorgeous Office Mug{" "}
+        {product.name}
       </Name>
-      <AddButton>Add</AddButton>
+      <AddButton onClick={() => handleAddToBasket(product)}>Add</AddButton>
     </StyledProductItem>
   );
 };

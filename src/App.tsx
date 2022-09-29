@@ -1,7 +1,7 @@
 import { ThemeProvider } from "styled-components";
 import { Provider } from "react-redux";
 
-import { store } from "./store";
+import { store } from "./app/store";
 import { theme } from "./theme/variables";
 import { GlobalStyle } from "./theme/globalStyles";
 

@@ -21,3 +21,10 @@ export type Comapny = {
   account: number;
   contact: string;
 };
+
+export enum SortingTypes {
+  PriceLowToHigh = "price-asc",
+  PriceHighToLow = "price-desc",
+  CreatedNewest = "created-desc",
+  CreatedOldest = "created-asc",
+}
