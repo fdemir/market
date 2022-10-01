@@ -16,8 +16,12 @@ type CardProps = {
   children?: React.ReactNode;
 } & Partial<StyledCardProps>;
 
-const Card: React.FC<CardProps> = ({ children, rounded }) => {
-  return <StyledCard rounded={rounded}>{children}</StyledCard>;
+const Card: React.FC<CardProps> = ({ children, rounded, ...props }) => {
+  return (
+    <StyledCard rounded={rounded} {...props}>
+      {children}
+    </StyledCard>
+  );
 };
 
 Card.defaultProps = {

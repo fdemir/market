@@ -12,6 +12,10 @@ const StyledContent = styled.div`
   row-gap: 20px;
 `;
 
+const StyledProductListCard = styled(Card)`
+  padding: 20px !important;
+`;
+
 const Content = () => {
   return (
     <StyledContent>
@@ -19,9 +23,9 @@ const Content = () => {
         Products
       </Text>
       <SelectItemType />
-      <Card>
+      <StyledProductListCard>
         <ProductList />
-      </Card>
+      </StyledProductListCard>
       <Pagination />
     </StyledContent>
   );
