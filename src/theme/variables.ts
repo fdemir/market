@@ -10,6 +10,8 @@ const colors = {
   gray: "#E0E0E0",
   grayAlt: "#A8A8A8",
   white: "#FFFFFF",
+  cavernous: "#525252",
+  februraryFrost: "#DFDEE2",
 };
 
 const typography = {
