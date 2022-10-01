@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { theme } from "~/theme/variables";
 
 type StyledTextProps = {
-  // fixme: these types are not correct
+  // fixme: these types are may not correct
   color: keyof typeof theme.colors;
   size: keyof typeof theme.typography.fontSize;
   fw: keyof typeof theme.typography.fontWeight;

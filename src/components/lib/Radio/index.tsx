@@ -55,9 +55,10 @@ interface RadioProps extends React.InputHTMLAttributes<HTMLInputElement> {
 
 const Radio: React.FC<RadioProps> = ({ value, name, label }) => {
   const ctx = useContext(RadioContext);
-  // FIXME: it should work standalone, implement
   if (!ctx) {
-    throw new Error("Radio must be used within RadioGroup");
+    throw new Error(
+      "Radio must be used within RadioGroup! Standalone implement later!"
+    );
   }
 
   const idName = name + `-radio`;

@@ -30,8 +30,6 @@ const StyledLogo = styled(Logo)`
   transform: translateX(-50%);
 `;
 
-// FIXME: not structured well, should be refactored, centering is not working
-
 const Header: React.FC = () => {
   const basketItems = useTypedSelector(selectItems);
   const hasItems = basketItems.length > 0;

@@ -54,7 +54,6 @@ const basketSlice = createSlice({
       if (!basketProduct) return;
 
       if (basketProduct.quantity - 1 == 0) {
-        // FIXME: call removeItem
         state.items = state.items.filter((item) => item.id !== basketProductId);
         return;
       }

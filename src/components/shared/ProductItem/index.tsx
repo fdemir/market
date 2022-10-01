@@ -10,7 +10,6 @@ const StyledProductItem = styled.div`
   row-gap: ${({ theme }) => theme.spacing[1]};
 `;
 
-// FIXME: placeholder
 const StyledImage = styled.div`
   padding: ${({ theme }) => theme.spacing[2]};
   border-radius: ${({ theme }) => theme.borderRadius.base};

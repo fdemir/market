@@ -30,8 +30,6 @@ const BasketFooter = styled.div`
   justify-content: flex-end;
 `;
 
-// FIXME: totalPrice toFixed is 3.14324234234234
-
 const Basket = () => {
   const items = useTypedSelector(selectItems);
   const totalPrice = useTypedSelector(selectTotalPrice);
