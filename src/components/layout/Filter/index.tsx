@@ -1,28 +1,19 @@
-import Input from "~/components/lib/Input";
+import Brand from "~/components/shared/Brand";
 import FilterBox from "~/components/shared/FilterBox";
-import { filterFields } from "~/utils/constants";
+import Sorting from "~/components/shared/Sorting";
+import Tag from "~/components/shared/Tag";
 
 const Filter = () => {
   return (
     <div>
       <FilterBox title="Sorting">
-        {filterFields.map((field) => (
-          <div>
-            <input
-              type="radio"
-              name="sorting"
-              value={field.value}
-              key={field.value}
-            />
-            <span>{field.label}</span>
-          </div>
-        ))}
+        <Sorting />
       </FilterBox>
       <FilterBox title="Brands">
-        <Input placeholder="Search brand" />
+        <Brand />
       </FilterBox>
       <FilterBox title="Tags">
-        <Input placeholder="Search a tag" />
+        <Tag />
       </FilterBox>
     </div>
   );

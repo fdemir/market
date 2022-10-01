@@ -1,4 +1,7 @@
-export type ItemType = "shirt" | "mug";
+export enum ItemType {
+  mug = "mug",
+  shirt = "shirt",
+}
 
 export type Product = {
   tags: string[];
@@ -22,9 +25,10 @@ export type Comapny = {
   contact: string;
 };
 
-export enum SortingTypes {
-  PriceLowToHigh = "price-asc",
-  PriceHighToLow = "price-desc",
-  CreatedNewest = "created-desc",
-  CreatedOldest = "created-asc",
-}
+export type SortingDirection = "asc" | "desc";
+
+export type BasketProduct = {
+  data: Product;
+  quantity: number;
+  id: string;
+};

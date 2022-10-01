@@ -20,6 +20,7 @@ const typography = {
     xs: "0.75rem", // 12px
     sm: "0.813rem", // 13px
     base: "0.875rem", // 14px
+    md: "0.938rem", // 15px
     lg: "1.25rem", // 20px
   },
   fontWeight: {

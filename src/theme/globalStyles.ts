@@ -11,4 +11,9 @@ export const GlobalStyle = createGlobalStyle<{ theme?: typeof theme }>`
     background-color:  ${({ theme }) => theme.colors.light};
     line-height: 18px;
   }
+
+  button {
+    cursor: pointer;
+    border: 0;
+  }
 `;

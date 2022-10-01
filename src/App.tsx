@@ -11,8 +11,12 @@ import Sidebar from "./components/layout/Sidebar";
 import Content from "./components/layout/Content";
 import Filter from "./components/layout/Filter";
 import Footer from "./components/layout/Footer";
+import { api } from "./app/services/api";
 
 const App = () => {
+  // immediately fetch the products from the API and dispatch the action
+  store.dispatch(api.endpoints.getProducts.initiate());
+
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>

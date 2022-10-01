@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { addItem } from "~/app/features/basket/basket-slice";
-import { useGetProductsQuery } from "~/app/services/product";
 import { useAppDispatch } from "~/app/store";
+import { useProductList } from "~/hooks/useProductList";
 import { Product } from "~/types";
 import ProductItem from "../ProductItem";
 
@@ -12,11 +12,11 @@ const StyledProductList = styled.div`
 `;
 
 const ProductList = () => {
-  const { isLoading, data: products, isError } = useGetProductsQuery();
+  const { isLoading, data: products, isError } = useProductList();
   const dispatch = useAppDispatch();
 
   const handleAddToBasket = (product: Product) => {
-    dispatch(addItem(product.slug));
+    dispatch(addItem(product));
   };
 
   if (isLoading) {
@@ -31,7 +31,7 @@ const ProductList = () => {
     <StyledProductList>
       {products?.map((product) => (
         <ProductItem
-          key={product.name}
+          key={product.added}
           product={product}
           handleAddToBasket={handleAddToBasket}
         />
