@@ -12,14 +12,22 @@ const StyledHeader = styled.header`
   height: 76.64px;
   background-color: ${(props) => props.theme.colors.primary};
   width: 100vw;
+  position: relative;
 `;
 
 const StyledHeaderContent = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   height: 100%;
   width: 100%;
+`;
+
+const StyledLogo = styled(Logo)`
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 `;
 
 // FIXME: not structured well, should be refactored, centering is not working
@@ -32,8 +40,7 @@ const Header: React.FC = () => {
     <StyledHeader>
       <Container>
         <StyledHeaderContent>
-          <span></span>
-          <Logo />
+          <StyledLogo />
           {hasItems && <BasketIndicator />}
         </StyledHeaderContent>
       </Container>
