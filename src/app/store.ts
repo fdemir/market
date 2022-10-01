@@ -7,6 +7,8 @@ import basketSlice from "./features/basket/basket-slice";
 import paginationSlice from "./features/pagination/pagination-slice";
 import sortingSlice from "./features/sorting/sorting-slice";
 import itemTypeSlice from "./features/item-type/item-type-slice";
+import tagSlice from "./features/tag/tag-slice";
+import brandSlice from "./features/brand/brand-slice";
 
 export const store = configureStore({
   reducer: {
@@ -15,6 +17,8 @@ export const store = configureStore({
     [paginationSlice.name]: paginationSlice.reducer,
     [sortingSlice.name]: sortingSlice.reducer,
     [itemTypeSlice.name]: itemTypeSlice.reducer,
+    [tagSlice.name]: tagSlice.reducer,
+    [brandSlice.name]: brandSlice.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(api.middleware),
