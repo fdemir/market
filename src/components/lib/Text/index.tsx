@@ -1,25 +1,23 @@
 import styled from "styled-components";
 import { theme } from "~/theme/variables";
 
-type StyledTextProps = {
-  // fixme: these types are may not correct
-  color: keyof typeof theme.colors;
-  size: keyof typeof theme.typography.fontSize;
-  fw: keyof typeof theme.typography.fontWeight;
-};
-
-const StyledText = styled.span<StyledTextProps>`
-  color: ${(props) => props.theme.colors[props.color] || "inherit"};
-  font-size: ${(props) => props.theme.typography.fontSize[props.size]};
-  font-weight: ${(props) => props.theme.typography.fontWeight[props.fw]};
-`;
-
-type TextProps = {
+interface TextProps {
   children?: React.ReactNode;
   className?: string;
-};
+  color?: keyof typeof theme.colors;
+  size?: keyof typeof theme.typography.fontSize;
+  fw?: keyof typeof theme.typography.fontWeight;
+}
 
-const Text: React.FC<TextProps & StyledTextProps> = ({
+const StyledText = styled.span<any>`
+  color: ${({ theme, color }) => theme.colors?.[color] || "inherit"};
+  font-size: ${({ theme, size }) =>
+    theme.typography.fontSize?.[size] || "inherit"};
+  font-weight: ${({ theme, fw }) =>
+    theme.typography.fontWeight?.[fw] || "inherit"};
+`;
+
+const Text: React.FC<TextProps> = ({
   children,
   color,
   size,
@@ -34,6 +32,7 @@ const Text: React.FC<TextProps & StyledTextProps> = ({
 };
 
 Text.defaultProps = {
+  color: "dark",
   size: "base",
   fw: "normal",
 };

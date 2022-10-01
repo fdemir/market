@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { addItem } from "~/app/features/basket/basket-slice";
 import { useAppDispatch } from "~/app/store";
+import Text from "~/components/lib/Text";
 import { useProductList } from "~/hooks/useProductList";
 import { Product } from "~/types";
 import ProductItem from "../ProductItem";

@@ -22,7 +22,7 @@ const BasketIndicator = () => {
   return (
     <StyledBasketIndicator>
       <BasketIcon />
-      <Text color="whiite" fw="bold">
+      <Text color="white" fw="bold">
         ₺ {totalPrice}
       </Text>
     </StyledBasketIndicator>
