@@ -16,6 +16,8 @@ const StyledImage = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.purpleLightAlt};
   width: 124px;
   height: 124px;
+  display: flex;
+  align-self: center;
 
   & > div {
     width: 100%;

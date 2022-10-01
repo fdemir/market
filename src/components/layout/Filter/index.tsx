@@ -1,11 +1,18 @@
+import styled from "styled-components";
 import Brand from "~/components/shared/Brand";
 import FilterBox from "~/components/shared/FilterCard";
 import Sorting from "~/components/shared/Sorting";
 import Tag from "~/components/shared/Tag";
 
+const StyledFilter = styled.aside`
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
 const Filter = () => {
   return (
-    <div>
+    <StyledFilter>
       <FilterBox title="Sorting">
         <Sorting />
       </FilterBox>
@@ -15,7 +22,7 @@ const Filter = () => {
       <FilterBox title="Tags">
         <Tag />
       </FilterBox>
-    </div>
+    </StyledFilter>
   );
 };
 

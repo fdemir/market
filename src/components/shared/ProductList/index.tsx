@@ -10,6 +10,15 @@ const StyledProductList = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: ${({ theme }) => theme.spacing[3]};
+  row-gap: 20px;
+
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 576px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 const ProductList = () => {
