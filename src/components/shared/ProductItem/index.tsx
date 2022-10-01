@@ -35,6 +35,11 @@ const AddButton = styled.button`
   border-radius: ${({ theme }) => theme.borderRadius.sm};
   border: none;
   cursor: pointer;
+
+  &:focus {
+    outline: none;
+    background-color: ${({ theme }) => theme.colors.primaryDarken};
+  }
 `;
 
 const Name = styled(Text)`

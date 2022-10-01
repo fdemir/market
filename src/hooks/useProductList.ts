@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { selectPagination } from "~/app/features/pagination/pagination-slice";
+import { selectTags } from "~/app/features/tag/tag-slice";
 import { selectProductResult } from "~/app/services/product";
 import { useTypedSelector } from "~/app/store";
 import { Product } from "~/types";
@@ -18,6 +19,7 @@ function useProductList() {
   const { sortBy, sortDirection } = useTypedSelector((state) => state.sorting);
   const { page, limit } = useTypedSelector(selectPagination);
   const { itemType } = useTypedSelector((state) => state.itemType);
+  const selectedTags = useTypedSelector(selectTags);
 
   const filteredProducts = useMemo(() => {
     if (result?.data?.length) {
@@ -40,9 +42,15 @@ function useProductList() {
         (product) => product.itemType === itemType
       );
 
+      if (selectedTags.length) {
+        transformedProducts = transformedProducts.filter((product) =>
+          product.tags.some((tag) => selectedTags.includes(tag))
+        );
+      }
+
       return pagination(page, limit)(transformedProducts);
     }
-  }, [result.data, sortBy, sortDirection, page, limit, itemType]);
+  }, [result.data, sortBy, sortDirection, page, limit, itemType, selectedTags]);
 
   return { ...result, data: filteredProducts };
 }

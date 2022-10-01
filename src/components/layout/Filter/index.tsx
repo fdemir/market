@@ -1,5 +1,5 @@
 import Brand from "~/components/shared/Brand";
-import FilterBox from "~/components/shared/FilterBox";
+import FilterBox from "~/components/shared/FilterCard";
 import Sorting from "~/components/shared/Sorting";
 import Tag from "~/components/shared/Tag";
 

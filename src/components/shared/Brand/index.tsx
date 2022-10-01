@@ -1,33 +1,34 @@
-import styled from "styled-components";
-import { useGetCompaniesQuery } from "~/app/services/company";
-import Input from "~/components/lib/Input";
+import { useMemo } from "react";
+import { selectBrands, toggleBrand } from "~/app/features/brand/brand-slice";
+import { useAppDispatch, useTypedSelector } from "~/app/store";
+import MultiSelect from "~/components/lib/MultiSelect";
 import useCompanies from "~/hooks/useCompaines";
 
-const StyledBrandList = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 214px;
-  row-gap: 10px;
-  overflow-y: scroll;
-`;
-
-const Brand = () => {
+const Brands = () => {
+  const dispatch = useAppDispatch();
   const { companiesWithProductCounts: companies } = useCompanies();
+  const selectedBrands = useTypedSelector(selectBrands);
+
+  const items = useMemo(() => {
+    if (!companies) return [];
+    return companies.map((company) => ({
+      label: company.name,
+      value: company.slug,
+      id: company.slug,
+      count: company.productCount,
+      checked: selectedBrands.includes(company.slug),
+    }));
+  }, [companies, selectedBrands]);
 
   return (
     <div>
-      <Input placeholder="Search brand" />
-      <StyledBrandList>
-        {companies?.map((company) => {
-          return (
-            <div key={company.slug}>
-              <span>{company.name}</span>;<span>{company.productCount}</span>
-            </div>
-          );
-        })}
-      </StyledBrandList>
+      <MultiSelect
+        placeholder="Search a brand"
+        items={items}
+        onCheck={(id) => dispatch(toggleBrand(id))}
+      />
     </div>
   );
 };
 
-export default Brand;
+export default Brands;
