@@ -1,6 +1,10 @@
 import { api } from "./services/api";
 
-import { configureStore } from "@reduxjs/toolkit";
+import {
+  configureStore,
+  createListenerMiddleware,
+  isAnyOf,
+} from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
 import basketSlice from "./features/basket/basket-slice";
@@ -9,6 +13,8 @@ import sortingSlice from "./features/sorting/sorting-slice";
 import itemTypeSlice from "./features/item-type/item-type-slice";
 import tagSlice from "./features/tag/tag-slice";
 import brandSlice from "./features/brand/brand-slice";
+
+const listenerMiddleware = createListenerMiddleware();
 
 export const store = configureStore({
   reducer: {
@@ -21,7 +27,17 @@ export const store = configureStore({
     [brandSlice.name]: brandSlice.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(api.middleware),
+    getDefaultMiddleware().concat(
+      api.middleware,
+      listenerMiddleware.middleware
+    ),
+});
+
+listenerMiddleware.startListening({
+  matcher: isAnyOf(brandSlice.actions.toggleBrand, tagSlice.actions.toggleTag),
+  effect: () => {
+    store.dispatch(paginationSlice.actions.setPage(1));
+  },
 });
 
 export type AppDispatch = typeof store.dispatch;
