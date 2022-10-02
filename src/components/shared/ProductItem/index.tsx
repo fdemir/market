@@ -73,7 +73,12 @@ const ProductItem: React.FC<ProductItemProps> = ({
       <Name color="dark" fw="semiBold">
         {product.name}
       </Name>
-      <AddButton onClick={() => handleAddToBasket(product)}>Add</AddButton>
+      <AddButton
+        data-test-id="add-to-cart"
+        onClick={() => handleAddToBasket(product)}
+      >
+        Add
+      </AddButton>
     </StyledProductItem>
   );
 };
