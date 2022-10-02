@@ -16,7 +16,7 @@
 - Run `yarn install` to install dependencies.
 - Run `yarn dev` to start the development server.
 
-## Production
+## Production
 
 - Run `yarn build` to build the project.
 - Run `yarn start` to start the production server.
