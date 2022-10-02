@@ -4,9 +4,10 @@ import { useAppDispatch, useTypedSelector } from "~/app/store";
 import Modal from "~/components/lib/Modal";
 import Basket from "~/components/shared/Basket";
 import useMediaQuery from "~/hooks/useMediaQuery";
+import { theme } from "~/theme/variables";
 
 const Sidebar = () => {
-  const isMobile = useMediaQuery("(max-width: 768px)");
+  const isMobile = useMediaQuery(`(max-width: ${theme.breakpoints.xl} )`);
   const isBasketModalOpen = useTypedSelector(
     (state) => state.basket.isBasketModalOpen
   );

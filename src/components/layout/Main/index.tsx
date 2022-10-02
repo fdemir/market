@@ -12,7 +12,7 @@ const StyledMain = styled.main`
     grid-template-columns: 296px 1fr;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     padding-top: 16px;
     grid-template-columns: 100%;
     gap: 0;

@@ -30,18 +30,24 @@ const StyledLogo = styled(Logo)`
   transform: translateX(-50%);
 `;
 
+const StyledHeaderContainer = styled(Container)`
+  @media (max-width: ${(props) => props.theme.breakpoints.md}) {
+    padding: 0;
+  }
+`;
+
 const Header: React.FC = () => {
   const basketItems = useTypedSelector(selectItems);
   const hasItems = basketItems.length > 0;
 
   return (
     <StyledHeader>
-      <Container>
+      <StyledHeaderContainer>
         <StyledHeaderContent>
           <StyledLogo />
           {hasItems && <BasketIndicator />}
         </StyledHeaderContent>
-      </Container>
+      </StyledHeaderContainer>
     </StyledHeader>
   );
 };

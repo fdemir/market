@@ -7,6 +7,7 @@ import FilterColumn from "~/components/shared/FilterColumn";
 import Sorting from "~/components/shared/Sorting";
 import Tag from "~/components/shared/Tag";
 import useMediaQuery from "~/hooks/useMediaQuery";
+import { theme } from "~/theme/variables";
 
 const FilterButton = styled.button`
   border-radius: ${({ theme }) => theme.borderRadius.sm};
@@ -19,7 +20,7 @@ const FilterButton = styled.button`
 `;
 
 const Filter = () => {
-  const isMobile = useMediaQuery("(max-width: 768px)");
+  const isMobile = useMediaQuery(`(max-width: ${theme.breakpoints.md})`);
   const [show, setShow] = useState(false);
 
   return isMobile ? (

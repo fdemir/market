@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 import { Product } from "~/types";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: "https://plankton-app-5vszu.ondigitalocean.app/api",
+  baseUrl: "http://localhost:3000",
 });
 
 export const api = createApi({

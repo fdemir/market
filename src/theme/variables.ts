@@ -47,11 +47,19 @@ const spacing = {
   3: "1.5rem",
 };
 
+const breakpoints = {
+  sm: "576px",
+  md: "768px",
+  lg: "992px",
+  xl: "1200px",
+};
+
 const theme = {
   colors,
   typography,
   borderRadius,
   spacing,
+  breakpoints,
 };
 
 export { theme };

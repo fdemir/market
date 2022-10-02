@@ -13,11 +13,11 @@ const StyledProductList = styled.div`
   gap: ${({ theme }) => theme.spacing[3]};
   row-gap: 20px;
 
-  @media (max-width: 992px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     grid-template-columns: repeat(2, 1fr);
   }
 `;

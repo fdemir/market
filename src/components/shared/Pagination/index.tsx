@@ -10,6 +10,7 @@ import { ReactComponent as LeftArrowIcon } from "~/assets/arrow.svg";
 import styled from "styled-components";
 import { useMemo } from "react";
 import useMediaQuery from "~/hooks/useMediaQuery";
+import { theme } from "~/theme/variables";
 
 const ControlButton = styled.button`
   border: 0;
@@ -39,7 +40,7 @@ const Wrapper = styled.div`
   gap: 32px;
   font-weight: ${(props) => props.theme.typography.fontWeight.semiBold};
 
-  @media (max-width: 768px) {
+  @media (max-width: ${(props) => props.theme.breakpoints.md}) {
     gap: 2px;
   }
 `;
@@ -75,7 +76,7 @@ const Arrow = styled(LeftArrowIcon)<{
 `;
 
 const Pagination = () => {
-  const isMobile = useMediaQuery("(max-width: 768px)");
+  const isMobile = useMediaQuery(`(max-width: ${theme.breakpoints.md})`);
   const dispatch = useAppDispatch();
   const pageCount = useTypedSelector(selectPageCount);
   const currentPage = useTypedSelector((state) => state.pagination.page);
