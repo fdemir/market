@@ -1,6 +1,7 @@
 import Text from "~/components/lib/Text";
 import styled from "styled-components";
 import { Product } from "~/types";
+import ImagePlaceholder from "~/assets/image-placeholder.webp";
 
 const StyledProductItem = styled.div`
   width: 100%;
@@ -19,10 +20,9 @@ const StyledImage = styled.div`
   display: flex;
   align-self: center;
 
-  & > div {
+  img {
     width: 100%;
     height: 100%;
-    background: lightgray;
   }
 `;
 
@@ -60,7 +60,12 @@ const ProductItem: React.FC<ProductItemProps> = ({
   return (
     <StyledProductItem data-test-id="product-item">
       <StyledImage>
-        <div></div>
+        <img
+          src={ImagePlaceholder}
+          alt={product.name}
+          width={124}
+          height={124}
+        />
       </StyledImage>
       <Text color="primary" fw="semiBold">
         ₺ {product.price}
