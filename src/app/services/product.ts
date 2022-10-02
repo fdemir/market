@@ -4,18 +4,7 @@ import { selectBrands } from "../features/brand/brand-slice";
 import { selectItemType } from "../features/item-type/item-type-slice";
 import { selectSorting } from "../features/sorting/sorting-slice";
 import { selectTags } from "../features/tag/tag-slice";
-import { api } from "./api";
-
-export const product = api.injectEndpoints({
-  endpoints: (builder) => ({
-    getProducts: builder.query<Product[], void>({
-      query: () => `/products`,
-    }),
-  }),
-});
-
-// FIXME: move it to a separate file
-export const selectProductResult = product.endpoints.getProducts.select();
+import { selectProductResult } from "./api";
 
 export const selectFilteredProducts = createSelector(
   [
@@ -66,5 +55,3 @@ export const selectFilteredProducts = createSelector(
     return { ...products, data: result };
   }
 );
-
-export const { useGetProductsQuery } = product;

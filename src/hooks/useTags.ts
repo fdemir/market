@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { selectProductResult } from "~/app/services/product";
+import { selectProductResult } from "~/app/services/api";
 import { useTypedSelector } from "~/app/store";
 
 type TagMap = Record<string, number>;

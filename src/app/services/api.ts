@@ -17,3 +17,7 @@ export const api = createApi({
     }),
   }),
 });
+
+export const selectProductResult = api.endpoints.getProducts.select();
+
+export const { useGetProductsQuery } = api;
