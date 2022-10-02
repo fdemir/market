@@ -57,7 +57,7 @@ const BasketItem: React.FC<BasketItemProps> = ({
   const { data, quantity } = product;
 
   return (
-    <StyledBasketItem>
+    <StyledBasketItem data-test-id="basket-item">
       <div>
         <div>
           <Text>{data.name}</Text>
@@ -69,13 +69,24 @@ const BasketItem: React.FC<BasketItemProps> = ({
         </div>
       </div>
       <StyledItemCount>
-        <ControlButton onClick={() => onDecrement(product.id)}>
+        <ControlButton
+          onClick={() => onDecrement(product.id)}
+          data-test-id="decrement"
+        >
           <DecrementIcon />
         </ControlButton>
-        <StyledItemQuantityText size="md" fw="bold" color="white">
+        <StyledItemQuantityText
+          size="md"
+          fw="bold"
+          color="white"
+          data-test-id="quantity"
+        >
           {quantity}
         </StyledItemQuantityText>
-        <ControlButton onClick={() => onIncrement(product.id)}>
+        <ControlButton
+          onClick={() => onIncrement(product.id)}
+          data-test-id="increment"
+        >
           <IncrementIcon />
         </ControlButton>
       </StyledItemCount>

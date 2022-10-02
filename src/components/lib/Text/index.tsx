@@ -23,9 +23,16 @@ const Text: React.FC<TextProps> = ({
   size,
   fw,
   className,
+  ...props
 }) => {
   return (
-    <StyledText color={color} size={size} fw={fw} className={className}>
+    <StyledText
+      color={color}
+      size={size}
+      fw={fw}
+      className={className}
+      {...props}
+    >
       {children}
     </StyledText>
   );

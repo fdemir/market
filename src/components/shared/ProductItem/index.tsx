@@ -58,7 +58,7 @@ const ProductItem: React.FC<ProductItemProps> = ({
   handleAddToBasket,
 }) => {
   return (
-    <StyledProductItem>
+    <StyledProductItem data-test-id="product-item">
       <StyledImage>
         <div></div>
       </StyledImage>

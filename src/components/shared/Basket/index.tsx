@@ -45,7 +45,7 @@ const Basket = () => {
   };
 
   return (
-    <StyledBasket>
+    <StyledBasket data-item-id="">
       <Card>
         {items.length > 0 ? (
           <>
