@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import styled from "styled-components";
 import { ReactComponent as CheckmarkIcon } from "~/assets/checkmark.svg";
 
@@ -35,9 +36,19 @@ const CheckboxMark = styled.div<{ checked: boolean }>`
 `;
 
 const Checkbox: React.FC<CheckboxProps> = ({ label, ...props }) => {
+  const checkBoxRef = useRef<HTMLInputElement>(null);
+
   return (
-    <CheckboxWrapper tabIndex={0} role="checkbox">
-      <input type="checkbox" hidden {...props} />
+    <CheckboxWrapper
+      tabIndex={0}
+      role="checkbox"
+      onKeyUp={(event) => {
+        if (event.code === "Enter") {
+          checkBoxRef.current?.click();
+        }
+      }}
+    >
+      <input type="checkbox" hidden ref={checkBoxRef} {...props} />
       <CheckboxMark checked={props.checked || false}>
         <CheckmarkIcon />
       </CheckboxMark>
