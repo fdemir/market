@@ -11,6 +11,7 @@ const CheckboxWrapper = styled.label`
   align-items: center;
   cursor: pointer;
   justify-content: flex-start;
+  user-select: none;
 `;
 
 const CheckboxLabel = styled.span`
