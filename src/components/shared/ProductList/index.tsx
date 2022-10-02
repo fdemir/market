@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { addItem } from "~/app/features/basket/basket-slice";
 import { selectPaginatedProducts } from "~/app/features/pagination/pagination-slice";
-import { selectFilteredProducts } from "~/app/services/product";
 import { useAppDispatch, useTypedSelector } from "~/app/store";
 import Text from "~/components/lib/Text";
 import { Product } from "~/types";

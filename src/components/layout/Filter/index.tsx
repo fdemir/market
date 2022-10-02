@@ -1,11 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import Modal from "~/components/lib/Modal";
-import Brand from "~/components/shared/Brand";
-import FilterBox from "~/components/shared/FilterCard";
 import FilterColumn from "~/components/shared/FilterColumn";
-import Sorting from "~/components/shared/Sorting";
-import Tag from "~/components/shared/Tag";
 import useMediaQuery from "~/hooks/useMediaQuery";
 import { theme } from "~/theme/variables";
 

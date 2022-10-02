@@ -1,7 +1,7 @@
 import React from "react";
 import Text from "~/components/lib/Text";
 import styled from "styled-components";
-import { BasketProduct, Product } from "~/types";
+import { BasketProduct } from "~/types";
 
 import { ReactComponent as DecrementIcon } from "~/assets/decrement.svg";
 import { ReactComponent as IncrementIcon } from "~/assets/increment.svg";

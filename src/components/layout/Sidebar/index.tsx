@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { hideBasketModal } from "~/app/features/basket/basket-slice";
 import { useAppDispatch, useTypedSelector } from "~/app/store";
 import Modal from "~/components/lib/Modal";
