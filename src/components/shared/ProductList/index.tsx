@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { addItem } from "~/app/features/basket/basket-slice";
-import { useAppDispatch } from "~/app/store";
+import { selectPaginatedProducts } from "~/app/features/pagination/pagination-slice";
+import { selectFilteredProducts } from "~/app/services/product";
+import { useAppDispatch, useTypedSelector } from "~/app/store";
 import Text from "~/components/lib/Text";
-import { useProductList } from "~/hooks/useProductList";
 import { Product } from "~/types";
 import ProductItem from "../ProductItem";
 
@@ -22,7 +23,12 @@ const StyledProductList = styled.div`
 `;
 
 const ProductList = () => {
-  const { isLoading, data: products, isError } = useProductList();
+  const {
+    isLoading,
+    isError,
+    data: products,
+  } = useTypedSelector(selectPaginatedProducts);
+
   const dispatch = useAppDispatch();
 
   const handleAddToBasket = (product: Product) => {
@@ -35,6 +41,10 @@ const ProductList = () => {
 
   if (isError) {
     return <Text>Error</Text>;
+  }
+
+  if (!products?.length) {
+    return <Text color="secondary">No products found.</Text>;
   }
 
   return (
