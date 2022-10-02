@@ -5,10 +5,12 @@ import { RootState } from "~/app/store";
 
 export interface BasketState {
   items: BasketProduct[];
+  isBasketModalOpen: boolean;
 }
 
 const initialState: BasketState = {
   items: [],
+  isBasketModalOpen: false,
 };
 
 const basketSlice = createSlice({
@@ -64,6 +66,12 @@ const basketSlice = createSlice({
       const basketProductId = action.payload;
       state.items = state.items.filter((item) => item.id !== basketProductId);
     },
+    showBasketModal(state) {
+      state.isBasketModalOpen = true;
+    },
+    hideBasketModal(state) {
+      state.isBasketModalOpen = false;
+    },
   },
 });
 
@@ -75,7 +83,12 @@ export const selectTotalPrice = createSelector(selectItems, (items) =>
     .toFixed(2)
 );
 
-export const { addItem, incrementQuantity, decrementQuantity } =
-  basketSlice.actions;
+export const {
+  addItem,
+  incrementQuantity,
+  decrementQuantity,
+  showBasketModal,
+  hideBasketModal,
+} = basketSlice.actions;
 
 export default basketSlice;

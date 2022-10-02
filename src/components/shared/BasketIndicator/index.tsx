@@ -1,8 +1,11 @@
 import { ReactComponent as BasketIcon } from "~/assets/basket.svg";
 import styled from "styled-components";
 import Text from "~/components/lib/Text";
-import { useTypedSelector } from "~/app/store";
-import { selectTotalPrice } from "~/app/features/basket/basket-slice";
+import { useAppDispatch, useTypedSelector } from "~/app/store";
+import {
+  selectTotalPrice,
+  showBasketModal,
+} from "~/app/features/basket/basket-slice";
 
 const StyledBasketIndicator = styled.div`
   background-color: ${(props) => props.theme.colors.primaryDarken};
@@ -18,9 +21,10 @@ const StyledBasketIndicator = styled.div`
 
 const BasketIndicator = () => {
   const totalPrice = useTypedSelector(selectTotalPrice);
+  const dispatch = useAppDispatch();
 
   return (
-    <StyledBasketIndicator>
+    <StyledBasketIndicator onClick={() => dispatch(showBasketModal())}>
       <BasketIcon />
       <Text color="white" fw="bold">
         ₺ {totalPrice}
