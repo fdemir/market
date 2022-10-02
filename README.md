@@ -8,14 +8,18 @@
 - Redux Toolkit
 - RTK Query
 - Eslint + Prettier
-- Cypress E2E Tests
-- Husky + Lint Staged
+- Cypress
 
 ## Installation
 
 - Clone this repo.
 - Run `yarn install` to install dependencies.
 - Run `yarn dev` to start the development server.
+
+## Production
+
+- Run `yarn build` to build the project.
+- Run `yarn start` to start the production server.
 
 ## Theming
 
