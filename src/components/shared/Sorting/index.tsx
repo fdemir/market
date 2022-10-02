@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import {
+  selectSorting,
+  setSelectedSortKey,
   setSortBy,
   setSortDirection,
 } from "~/app/features/sorting/sorting-slice";
-import { useAppDispatch } from "~/app/store";
+import { useAppDispatch, useTypedSelector } from "~/app/store";
 import Radio from "~/components/lib/Radio";
 import RadioGroup from "~/components/lib/RadioGroup";
 import { filterFields } from "~/utils/constants";
@@ -17,11 +19,11 @@ const StyledSortingItem = styled.div`
 
 const Sorting = () => {
   const dispatch = useAppDispatch();
-  const [value, setValue] = useState<string>("");
+  const { selectedSortKey } = useTypedSelector(selectSorting);
 
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
-    setValue(value);
+    dispatch(setSelectedSortKey(value));
 
     const field = filterFields.find((item) => item.key === value);
     if (!field) return;
@@ -32,7 +34,7 @@ const Sorting = () => {
 
   return (
     <div>
-      <RadioGroup onChange={handleOnChange} value={value}>
+      <RadioGroup onChange={handleOnChange} value={selectedSortKey}>
         {filterFields.map((field) => (
           <StyledSortingItem key={field.key}>
             <Radio name={field.key} value={field.key} label={field.label} />

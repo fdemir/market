@@ -7,11 +7,13 @@ type ProductKey = keyof Product;
 type SortingState = {
   sortBy: ProductKey | null;
   sortDirection: SortingDirection | null;
+  selectedSortKey: string;
 };
 
 const initialState: SortingState = {
   sortBy: null,
   sortDirection: null,
+  selectedSortKey: "",
 };
 
 const sortingSlice = createSlice({
@@ -24,10 +26,14 @@ const sortingSlice = createSlice({
     setSortDirection(state, action: PayloadAction<"asc" | "desc">) {
       state.sortDirection = action.payload;
     },
+    setSelectedSortKey(state, action: PayloadAction<string>) {
+      state.selectedSortKey = action.payload;
+    },
   },
 });
 
-export const { setSortBy, setSortDirection } = sortingSlice.actions;
+export const { setSortBy, setSortDirection, setSelectedSortKey } =
+  sortingSlice.actions;
 
 export const selectSorting = (state: RootState) => state.sorting;
 
