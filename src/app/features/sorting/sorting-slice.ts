@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from "~/app/store";
 import { Product, SortingDirection } from "~/types";
 
 type ProductKey = keyof Product;
@@ -27,5 +28,7 @@ const sortingSlice = createSlice({
 });
 
 export const { setSortBy, setSortDirection } = sortingSlice.actions;
+
+export const selectSorting = (state: RootState) => state.sorting;
 
 export default sortingSlice;
