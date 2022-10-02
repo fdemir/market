@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from "~/app/store";
 import { ItemType } from "~/types";
 
 type ItemTypeSliceState = {
@@ -20,5 +21,7 @@ const itemTypeSlice = createSlice({
 });
 
 export const { setItemType } = itemTypeSlice.actions;
+
+export const selectItemType = (state: RootState) => state.itemType.itemType;
 
 export default itemTypeSlice;
