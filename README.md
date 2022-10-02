@@ -21,6 +21,10 @@
 - Run `yarn build` to build the project.
 - Run `yarn start` to start the production server.
 
+## Tests
+
+- Run `yarn test` to run the tests.
+
 ## Theming
 
 You can change the theme by changing the `theme` variable in `src/theme/variables.ts`.
