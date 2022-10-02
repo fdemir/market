@@ -2,11 +2,10 @@
 
 describe("Basket", () => {
   before(() => {
-    cy.visit("/");
     cy.intercept("GET", "**/products").as("getProducts");
+    cy.visit("/");
     cy.wait("@getProducts");
   });
-
   it("should add item to basket", () => {
     cy.get("[data-test-id='product-item']").first().find("button").click();
   });

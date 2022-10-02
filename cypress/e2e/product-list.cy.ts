@@ -2,8 +2,8 @@
 
 describe("Product List", () => {
   before(() => {
-    cy.visit("/");
     cy.intercept("GET", "**/products").as("getProducts");
+    cy.visit("/");
     cy.wait("@getProducts");
   });
 
