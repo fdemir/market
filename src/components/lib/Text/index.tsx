@@ -31,10 +31,4 @@ const Text: React.FC<TextProps> = ({
   );
 };
 
-Text.defaultProps = {
-  color: "dark",
-  size: "base",
-  fw: "normal",
-};
-
 export default Text;
