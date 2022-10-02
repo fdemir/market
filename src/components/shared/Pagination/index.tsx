@@ -89,7 +89,7 @@ const Pagination = () => {
     <Wrapper>
       <ControlButton
         onClick={() => dispatch(prevPage())}
-        disabled={currentPage == 1}
+        disabled={currentPage === 1}
       >
         <Arrow prev={true} />
         <span>Prev</span>
@@ -100,13 +100,13 @@ const Pagination = () => {
             return (
               <PageItem
                 onClick={() => dispatch(setPage(page))}
-                active={currentPage == page}
+                active={currentPage === page}
               >
                 {page}
               </PageItem>
             );
           }
-          if (currentPage > 4 && idx == 2 && !isMobile) {
+          if (currentPage > 4 && idx === 2 && !isMobile) {
             return <PageItem>...</PageItem>;
           }
 
@@ -114,14 +114,14 @@ const Pagination = () => {
             return (
               <PageItem
                 onClick={() => dispatch(setPage(page))}
-                active={currentPage == page}
+                active={currentPage === page}
               >
                 {page}
               </PageItem>
             );
           }
 
-          if (page > currentPage + 2 && idx == currentPage + 2) {
+          if (page > currentPage + 2 && idx === currentPage + 2) {
             return <PageItem>...</PageItem>;
           }
 
@@ -131,7 +131,7 @@ const Pagination = () => {
             return (
               <PageItem
                 onClick={() => dispatch(setPage(page))}
-                active={currentPage == page}
+                active={currentPage === page}
               >
                 {page}
               </PageItem>

@@ -23,7 +23,7 @@ const Sorting = () => {
     const { value } = event.target;
     setValue(value);
 
-    const field = filterFields.find((item) => item.key == value);
+    const field = filterFields.find((item) => item.key === value);
     if (!field) return;
 
     dispatch(setSortBy(field.name));

@@ -72,7 +72,7 @@ const Radio: React.FC<RadioProps> = ({ value, name, label }) => {
         value={value}
         name={name}
         id={idName}
-        checked={ctx.value == value}
+        checked={ctx.value === value}
       />
       <StyledRadioCircle>
         <CheckmarkIcon />

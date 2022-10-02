@@ -21,10 +21,10 @@ const basketSlice = createSlice({
       const foundItem = state.items.findIndex(
         (item) =>
           item.data.slug === action.payload.slug &&
-          item.data.name == action.payload.name
+          item.data.name === action.payload.name
       );
 
-      if (foundItem != -1) {
+      if (foundItem !== -1) {
         state.items[foundItem].quantity += 1;
         return;
       }
@@ -55,7 +55,7 @@ const basketSlice = createSlice({
 
       if (!basketProduct) return;
 
-      if (basketProduct.quantity - 1 == 0) {
+      if (basketProduct.quantity - 1 === 0) {
         state.items = state.items.filter((item) => item.id !== basketProductId);
         return;
       }

@@ -26,13 +26,13 @@ const SelectItemType = () => {
     <div>
       <TypeButton
         onClick={() => dispatch(setItemType(ItemType.mug))}
-        active={selectedItemType == ItemType.mug}
+        active={selectedItemType === ItemType.mug}
       >
         mug
       </TypeButton>
       <TypeButton
         onClick={() => dispatch(setItemType(ItemType.shirt))}
-        active={selectedItemType == ItemType.shirt}
+        active={selectedItemType === ItemType.shirt}
       >
         shirt
       </TypeButton>
