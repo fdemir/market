@@ -1,47 +1,15 @@
 import React from "react";
 import Text from "~/components/lib/Text";
-import styled from "styled-components";
 import { BasketProduct } from "~/types";
 
 import { ReactComponent as DecrementIcon } from "~/assets/decrement.svg";
 import { ReactComponent as IncrementIcon } from "~/assets/increment.svg";
-
-const StyledBasketItem = styled.div`
-  width: 100%;
-  display: flex;
-  padding: 18px 0;
-  border-bottom: 1px solid #f4f4f4;
-  justify-content: space-between;
-  gap: 10px;
-
-  &:first-child {
-    padding-top: 0;
-  }
-`;
-
-const StyledItemCount = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-`;
-
-const StyledItemQuantityText = styled(Text)`
-  width: 32px;
-  height: 32px;
-  background-color: ${(props) => props.theme.colors.primary};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const ControlButton = styled.button`
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: transparent;
-`;
+import {
+  ControlButton,
+  StyledBasketItem,
+  StyledItemCount,
+  StyledItemQuantityText,
+} from "./style";
 
 type BasketItemProps = {
   product: BasketProduct;

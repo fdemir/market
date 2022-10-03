@@ -1,19 +1,9 @@
+import { FilterButton } from "./style";
 import { useState } from "react";
-import styled from "styled-components";
 import Modal from "~/components/lib/Modal";
 import FilterColumn from "~/components/shared/FilterColumn";
 import useMediaQuery from "~/hooks/useMediaQuery";
 import { theme } from "~/theme/variables";
-
-const FilterButton = styled.button`
-  border-radius: ${({ theme }) => theme.borderRadius.sm};
-  padding: 8px;
-  font-size: ${({ theme }) => theme.typography.fontSize.md};
-  font-weight: ${({ theme }) => theme.typography.fontWeight.semiBold};
-  margin-bottom: 30px;
-  background-color: ${({ theme }) => theme.colors.purpleLight};
-  color: ${({ theme }) => theme.colors.primary};
-`;
 
 const Filter = () => {
   const isMobile = useMediaQuery(`(max-width: ${theme.breakpoints.md})`);

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import { BasketFooter, StyledBasket, TotalPrice } from "./style";
 import {
   decrementQuantity,
   incrementQuantity,
@@ -9,26 +9,6 @@ import { useAppDispatch, useTypedSelector } from "~/app/store";
 import Card from "~/components/lib/Card";
 import Text from "~/components/lib/Text";
 import BasketItem from "../BasketItem";
-
-const StyledBasket = styled.div`
-  width: 100%;
-  border: 8px solid ${(props) => props.theme.colors.primary};
-  border-radius: ${(props) => props.theme.borderRadius.sm};
-`;
-
-const TotalPrice = styled.div`
-  padding: 17px 24px;
-  border: 2px solid ${(props) => props.theme.colors.primary};
-  border-radius: ${(props) => props.theme.borderRadius.sm};
-  color: ${(props) => props.theme.colors.primary};
-  margin-top: 24px;
-  font-weight: ${(props) => props.theme.typography.fontWeight.semiBold};
-`;
-
-const BasketFooter = styled.div`
-  display: flex;
-  justify-content: flex-end;
-`;
 
 const Basket = () => {
   const items = useTypedSelector(selectItems);

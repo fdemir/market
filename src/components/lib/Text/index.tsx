@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import { theme } from "~/theme/variables";
+import { StyledText } from "./style";
 
 interface TextProps {
   children?: React.ReactNode;
@@ -8,14 +8,6 @@ interface TextProps {
   size?: keyof typeof theme.typography.fontSize;
   fw?: keyof typeof theme.typography.fontWeight;
 }
-
-const StyledText = styled.span<any>`
-  color: ${({ theme, color }) => theme.colors?.[color] || "inherit"};
-  font-size: ${({ theme, size }) =>
-    theme.typography.fontSize?.[size] || "inherit"};
-  font-weight: ${({ theme, fw }) =>
-    theme.typography.fontWeight?.[fw] || "inherit"};
-`;
 
 const Text: React.FC<TextProps> = ({
   children,
