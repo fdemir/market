@@ -40,6 +40,9 @@ const PageList = styled.div`
 `;
 
 const PageItem = styled.button<{ active?: boolean }>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 0;
   background-color: ${({ theme, active }) =>
     active ? theme.colors.primary : "transparent"};
